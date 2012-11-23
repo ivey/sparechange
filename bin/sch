@@ -10,7 +10,9 @@ class App
   include Methadone::CLILogging
 
   def self.cleanup
-    info "\n\nQuitting..."
+    info "\n\nQuitting..." unless @notified
+    @notified = 1
+    exit(0)
   end
 
   trap("INT") { cleanup }

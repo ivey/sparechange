@@ -4,7 +4,7 @@ require "sparechange/version"
 
 Gem::Specification.new do |s|
   s.name        = "sparechange"
-  s.version     = Sparechange::VERSION
+  s.version     = SpareChange::VERSION
   s.authors     = ["Michael D. Ivey"]
   s.email       = ["ivey@gweezlebur.com"]
   s.homepage    = "http://ivey.github.com/sparechange"

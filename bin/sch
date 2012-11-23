@@ -3,15 +3,25 @@
 require 'optparse'
 require 'methadone'
 require 'sparechange'
+require 'highline/import'
 
 class App
   include Methadone::Main
   include Methadone::CLILogging
 
-  main do # Add args you want: |like,so|
-    # your program code here
-    # You can access CLI options via
-    # the options Hash
+  main do
+    say "Spare Change version #{SpareChange::VERSION}"
+    say "Enter transactions, or \"quit\" at the date prompt to exit"
+    begin
+      while(true)
+        date = ask("Date? ")
+        debug date
+        break if date == "quit"
+      end
+    rescue EOFError
+    ensure
+      info "\n\nQuitting..."
+    end
   end
 
   # supplemental methods here
@@ -35,7 +45,7 @@ class App
   # # Make an argument optional
   # arg :optional_arg, :optional
 
-  version Sparechange::VERSION
+  version SpareChange::VERSION
 
   use_log_level_option
 

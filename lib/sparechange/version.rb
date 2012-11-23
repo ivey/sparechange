@@ -1,3 +1,3 @@
-module Sparechange
+module SpareChange
   VERSION = "0.0.1"
 end

@@ -1,5 +1,5 @@
 require "sparechange/version"
 
-module Sparechange
-  # Your code goes here...
+module SpareChange
+
 end

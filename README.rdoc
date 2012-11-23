@@ -1,7 +1,7 @@
-= sparechange - DESCRIBE YOUR GEM
+= sparechange - A simple command-line bookkeeping tool
 
-Author::  YOUR NAME (YOUR EMAIL)
-Copyright:: Copyright (c) 2012 YOUR NAME
+Author::  Michael D. Ivey (ivey@gweezlebur.com)
+Copyright:: Copyright (c) 2012 Michael D. Ivey
 
 
 License:: mit, see LICENSE.txt
@@ -12,7 +12,7 @@ DESCRIBE YOUR GEM HERE
 
 == Links
 
-* {Source on Github}[LINK TO GITHUB]
+* ivey/github[http://github.com/ivey/sparechange]
 * RDoc[LINK TO RDOC.INFO]
 
 == Install

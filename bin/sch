@@ -26,14 +26,33 @@ class App
           q.default = Date.today.strftime("%m/%d/%Y")
           q.validate = /\d\d\/\d\d\/\d\d\d\d|quit/
         end
-        debug date
+        debug "Date: #{date}"
         break if date == "quit"
-        amount = ask("Amount ?") do |q|
+        amount = ask("Amount? ") do |q|
           q.validate = /-?\d+(\.\d\d)?/
         end
-        debug amount
+        debug "Amount: #{amount}"
+        party = ask("Party? ")
+        debug "Party: #{party}"
+        description = ask("Description? ")
+        debug "Description: #{description}"
+        category = choose do |menu|
+          menu.flow = :columns_across
+          if amount.to_i > 0
+            menu.header = "Income Category"
+            menu.choices(:ravelry, :etsy, :direct, :pattern)
+          else
+            menu.header = "Expense Category"
+            menu.choices(:yarn, :supplies, :postage, :paypal, :etsy)
+          end
+        end
+        debug "Category: #{category}"
+        sleep 1
+        say "Loaded entry (not really)"
       end
     rescue EOFError
+    rescue Exception => e
+      warn e.message
     ensure
       cleanup
     end

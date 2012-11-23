@@ -14,9 +14,16 @@ class App
     say "Enter transactions, or \"quit\" at the date prompt to exit"
     begin
       while(true)
-        date = ask("Date? ")
+        date = ask("Date? ") do |q|
+          q.default = Date.today.strftime("%m/%d/%Y")
+          q.validate = /\d\d\/\d\d\/\d\d\d\d|quit/
+        end
         debug date
         break if date == "quit"
+        amount = ask("Amount ?") do |q|
+          q.validate = /-?\d+(\.\d\d)?/
+        end
+        debug amount
       end
     rescue EOFError
     ensure

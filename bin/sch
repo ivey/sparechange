@@ -9,6 +9,12 @@ class App
   include Methadone::Main
   include Methadone::CLILogging
 
+  def self.cleanup
+    info "\n\nQuitting..."
+  end
+
+  trap("INT") { cleanup }
+
   main do
     say "Spare Change version #{SpareChange::VERSION}"
     say "Enter transactions, or \"quit\" at the date prompt to exit"
@@ -27,7 +33,7 @@ class App
       end
     rescue EOFError
     ensure
-      info "\n\nQuitting..."
+      cleanup
     end
   end
 

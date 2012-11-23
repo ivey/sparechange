@@ -18,8 +18,6 @@ end
 
 After('~@no-quit') do
   if @interactive
-    type("quit")
-    assert_matching_output("Quitting",all_output)
-    assert_exit_status(0)
+    @interactive.terminate(false)
   end
 end
